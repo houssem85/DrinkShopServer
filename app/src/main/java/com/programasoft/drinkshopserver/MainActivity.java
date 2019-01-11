@@ -38,15 +38,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.programasoft.drinkshopserver.Adapter.MenuAdapter;
+import com.programasoft.drinkshopserver.Model.error;
 import com.programasoft.drinkshopserver.Model.menu;
 import com.programasoft.drinkshopserver.Retrofit.IDrinkShopApi;
+import com.programasoft.drinkshopserver.Retrofit.RetrofitClient;
 import com.programasoft.drinkshopserver.Utils.Comment;
 import com.programasoft.drinkshopserver.offline.InternetConnectionListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import dmax.dialog.SpotsDialog;
@@ -122,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else {
             Toast.makeText(this,"No Internet",Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.programasoft.drinkshopserver.Retrofit;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Base64;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,6 +22,7 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by ASUS on 27/12/2018.
@@ -39,8 +41,12 @@ public class RetrofitClient {
         okhttpClientBuilder.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
+                String username="houssem";
+                String passworld="123456789";
+                String base=username+":"+passworld;
+                String cle="Basic "+Base64.encodeToString(base.getBytes(),Base64.NO_WRAP);
                 Request request=chain.request();
-                Request.Builder builder= request.newBuilder().header("auth","houssem");
+                Request.Builder builder= request.newBuilder().header("Authorization",cle);
                 return chain.proceed(builder.build());
             }
         });
@@ -49,7 +55,7 @@ public class RetrofitClient {
         okhttpClientBuilder.connectTimeout(60, TimeUnit.SECONDS);
         okhttpClientBuilder.readTimeout(60, TimeUnit.SECONDS);
         okhttpClientBuilder.writeTimeout(60, TimeUnit.SECONDS);
-        Retrofit.Builder builder=new Retrofit.Builder().baseUrl(Comment.SERVER_URL).addConverterFactory(GsonConverterFactory.create(gson)).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).client(okhttpClientBuilder.build());
+        Retrofit.Builder builder=new Retrofit.Builder().baseUrl(Comment.SERVER_URL).addConverterFactory(GsonConverterFactory.create(gson)).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).client(okhttpClientBuilder.build()).addConverterFactory(ScalarsConverterFactory.create());;
         retrofit=builder.build();
 
     }
