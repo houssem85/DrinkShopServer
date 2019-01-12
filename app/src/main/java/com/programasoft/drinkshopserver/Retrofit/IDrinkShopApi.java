@@ -11,6 +11,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
+import com.programasoft.drinkshopserver.Model.drink;
 import com.programasoft.drinkshopserver.Model.error;
 import com.programasoft.drinkshopserver.Model.menu;
 
@@ -42,5 +43,19 @@ public interface IDrinkShopApi {
     @FormUrlEncoded
     @POST("DeleteMenu.php")
     Call<Boolean> DeleteMenu(@Field("ID") String ID, @Field("Name") String Name);
+
+
+
+    @FormUrlEncoded
+    @POST("GetDrinks.php")
+    Call<List<drink>> GetDrinks(@Field("menu_id") String menu_id);
+
+    @Multipart
+    @POST("AddDrink.php")
+    Call<Boolean> AddDrink(@Part MultipartBody.Part file,
+                           @Part("name") RequestBody name,@Part("link") RequestBody link,
+                           @Part("price") RequestBody price,
+                           @Part("menu_id") RequestBody menu_id);
+
 
 }

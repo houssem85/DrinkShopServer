@@ -13,12 +13,14 @@ import com.programasoft.drinkshopserver.R;
 
 public class MenuViewHolder extends RecyclerView.ViewHolder  {
     public ImageView image;
+    public ImageView image_more;
     public TextView name;
 
     public MenuViewHolder(View itemView) {
         super(itemView);
         image=(ImageView)itemView.findViewById(R.id.image);
         name=(TextView) itemView.findViewById(R.id.name);
+        image_more=(ImageView)itemView.findViewById(R.id.image_more);
 
     }
 

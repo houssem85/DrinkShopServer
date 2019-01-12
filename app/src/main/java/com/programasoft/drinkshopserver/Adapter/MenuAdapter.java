@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.programasoft.drinkshopserver.Drink_layout;
 import com.programasoft.drinkshopserver.Model.menu;
 
 import com.programasoft.drinkshopserver.R;
@@ -37,12 +38,22 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
     public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(context).inflate(R.layout.menu_item_layout,null);
         final MenuViewHolder holder=new MenuViewHolder(v);
-        v.setOnClickListener(new View.OnClickListener() {
+        holder.image_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final int position = holder.getAdapterPosition();
                 menu menu=menus.get(position);
                 Intent i=new Intent(context,menuActivity.class);
+                i.putExtra("menu",menu);
+                context.startActivity(i);
+            }
+        });
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int position = holder.getAdapterPosition();
+                menu menu=menus.get(position);
+                Intent i=new Intent(context,Drink_layout.class);
                 i.putExtra("menu",menu);
                 context.startActivity(i);
             }
