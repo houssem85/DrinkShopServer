@@ -303,7 +303,7 @@ private void load_data()
 {api.GetDrinks(menu.getID()+"").enqueue(new Callback<List<drink>>() {
     @Override
     public void onResponse(Call<List<drink>> call, Response<List<drink>> response) {
-        adapter=new DrinkAdapter(response.body(),Drink_layout.this);
+        adapter=new DrinkAdapter(response.body(),Drink_layout.this,menu);
         recyclerView.setAdapter(adapter);
     }
 

@@ -38,11 +38,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.programasoft.drinkshopserver.Adapter.MenuAdapter;
 import com.programasoft.drinkshopserver.Model.error;
 import com.programasoft.drinkshopserver.Model.menu;
+import com.programasoft.drinkshopserver.Model.token;
 import com.programasoft.drinkshopserver.Retrofit.IDrinkShopApi;
 import com.programasoft.drinkshopserver.Retrofit.RetrofitClient;
 import com.programasoft.drinkshopserver.Utils.Comment;
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        UpdateToken(FirebaseInstanceId.getInstance().getToken());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -291,20 +294,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+         if(id==R.id.order)
+         {Intent i=new Intent(this,OrderActivity.class);
+          this.startActivity(i);
+         }
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -418,5 +412,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 cursor.close();
         }
         return null;
+    }
+
+    private void UpdateToken(String s) {
+        IDrinkShopApi api=Comment.getApi();
+        api.InsertUpdateToken("server_01",s,true).enqueue(new Callback<token>() {
+            @Override
+            public void onResponse(Call<token> call, Response<token> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<token> call, Throwable t) {
+
+            }
+        });
+
     }
 }

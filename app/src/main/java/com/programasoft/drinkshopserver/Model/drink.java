@@ -1,10 +1,12 @@
 package com.programasoft.drinkshopserver.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by ASUS on 20/12/2018.
  */
 
-public class drink {
+public class drink  implements Serializable{
     private int id;
     private String name;
     private String link;

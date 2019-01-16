@@ -10,10 +10,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 import com.programasoft.drinkshopserver.Model.drink;
 import com.programasoft.drinkshopserver.Model.error;
 import com.programasoft.drinkshopserver.Model.menu;
+import com.programasoft.drinkshopserver.Model.order;
+import com.programasoft.drinkshopserver.Model.token;
 
 import java.util.List;
 
@@ -56,6 +59,23 @@ public interface IDrinkShopApi {
                            @Part("name") RequestBody name,@Part("link") RequestBody link,
                            @Part("price") RequestBody price,
                            @Part("menu_id") RequestBody menu_id);
+
+    @FormUrlEncoded
+    @POST("DeleteDrink.php")
+    Call<Boolean> DeleteDrink(@Field("id") int id);
+
+
+    @FormUrlEncoded
+    @POST("UpdateDrink.php")
+    Call<Boolean> UpdateDrink(@Field("id") int id,@Field("name") String name,@Field("price") double price,@Field("menu_id") int menu_id);
+
+    @GET("GetOrdersByStatus.php")
+    Call<List<order>> GetOrdersByStatus(@Query("status") int status);
+
+
+    @FormUrlEncoded
+    @POST("InsertUpdateToken.php")
+    Call<token> InsertUpdateToken(@Field("Phone") String Phone, @Field("Token") String Token , @Field("IsServerToken") boolean IsServerToken);
 
 
 }

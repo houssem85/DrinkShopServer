@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:id="@+id/NewOrders"
+    android:icon="@drawable/neworder"
+    android:title="New Orders"
+    />
+    <item
+        android:id="@+id/CanceldOrders"
+        android:icon="@drawable/cancel"
+        android:title="Canceld"
+        />
+    <item
+        android:id="@+id/ProcessingOrders"
+        android:icon="@drawable/processing"
+        android:title="Processing"
+        />
+    <item
+        android:id="@+id/ShippingOrders"
+        android:icon="@drawable/shipping"
+        android:title="Shipping"
+        />
+    <item
+        android:id="@+id/ShippdedOrders"
+        android:icon="@drawable/shippded"
+        android:title="Shippded"
+        />
+</menu>

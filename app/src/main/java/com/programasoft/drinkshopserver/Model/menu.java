@@ -12,6 +12,11 @@ public class menu implements Serializable {
     private String Name;
     private String Link;
 
+    @Override
+    public String toString() {
+        return Name;
+    }
+
     public menu() {
     }
 

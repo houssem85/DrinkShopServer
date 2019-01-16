@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "751328298704",
+    "firebase_url": "https://drinkshop-1d359.firebaseio.com",
+    "project_id": "drinkshop-1d359",
+    "storage_bucket": "drinkshop-1d359.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751328298704:android:d3e422abf8672aeb",
+        "android_client_info": {
+          "package_name": "com.programasoft.drinkshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751328298704-63u04lo08r9cs3e4kmuun1m9o3ouj6vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdmuCYAOlKx6Uqew4fn4IQoPWeSrw37GY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751328298704:android:8e4ca5d55b8f3b84",
+        "android_client_info": {
+          "package_name": "com.programasoft.drinkshopserver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751328298704-63u04lo08r9cs3e4kmuun1m9o3ouj6vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdmuCYAOlKx6Uqew4fn4IQoPWeSrw37GY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
